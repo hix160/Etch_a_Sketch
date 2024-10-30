@@ -3,6 +3,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     
     background-color: antiquewhite;
 }
@@ -11,6 +12,7 @@ body {
     flex-wrap:wrap;
     width:640px;
     height:640px;
+    
 }
 
 .row{
@@ -21,9 +23,34 @@ body {
     width: 40px;
     height: 40px;
     background-color: bisque;
-    margin:1px;
+    margin:0px;
     display: flex;
     justify-content: center;
     align-items:center;
+    border: 0px solid #000;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+#grid_size_button{
+    height: 40px;
+    width: auto;
+    margin-bottom: 5px;
+}
+
+.infoBox{
+    display: flex;
+    height: 40px;
+    text-wrap: wrap;
+    text-align: center;
+    
+    align-items: center;
+    background-color: whitesmoke;
+    margin-bottom: 5px;
+    padding: 0 5px;
     border: 1px solid #000;
 }

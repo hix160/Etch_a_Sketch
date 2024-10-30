@@ -16,3 +16,13 @@ for(var i=0; i<16; i++) {
         row.appendChild(square);
     }
 }
+
+const squares = document.querySelectorAll(".square");
+
+squares.forEach((squareItem) => {
+    squareItem.addEventListener("mouseenter", ()=> {
+        squareItem.style.backgroundColor = "lightblue";
+        console.log("what");
+    });
+
+});

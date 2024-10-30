@@ -1,28 +1,72 @@
 
+function initListeners() {
 
+    const squares = document.querySelectorAll(".square");
 
+    squares.forEach((squareItem) => {
+        squareItem.addEventListener("mouseenter", ()=> {
+            squareItem.style.backgroundColor = "lightblue";
+            console.log("what");
+        });
+    
+    });
 
+    const gridSizeButton = document.querySelector("#grid_size_button");
+    gridSizeButton.addEventListener("click",getUserGridSize);
+}
 
-const container = document.querySelector("#container");
+function getUserGridSize() {
+    
+    let userGivenNumber = 0
 
-for(var i=0; i<16; i++) {
-    const row = document.createElement("div");
-    row.classList.add("row");
-    container.appendChild(row);
+    while(true) {
+        let userGivenInput = window.prompt("Please enter whole number for desired grid size: ", "16");
+        userGivenNumber = parseInt(userGivenInput);
 
-    for(var j=0; j<16; j++) {
-        const square = document.createElement("div");
-        square.classList.add("square");
-        row.appendChild(square);
+        if(!isNaN(userGivenNumber) && userGivenNumber < 100) break;
+        else alert("Please enter a number")
+    }
+    
+    squareCount = userGivenNumber;
+}
+
+function updateElements() {
+
+}
+
+function createGrid() {
+    
+    const container = document.querySelector("#container");
+    for(var i=0; i<squareCount; i++) {
+        const row = document.createElement("div");
+        row.classList.add("row");
+        container.appendChild(row);
+    
+        for(var j=0; j<squareCount; j++) {
+            const square = document.createElement("div");
+            square.classList.add("square");
+            row.appendChild(square);
+        }
     }
 }
 
-const squares = document.querySelectorAll(".square");
 
-squares.forEach((squareItem) => {
-    squareItem.addEventListener("mouseenter", ()=> {
-        squareItem.style.backgroundColor = "lightblue";
-        console.log("what");
-    });
 
-});
+
+
+let squareCount = 16;
+
+createGrid()
+initListeners()
+
+
+
+
+
+const header = document.querySelector(".header");
+const infoBox = document.createElement("div");
+infoBox.classList.add("infoBox");
+infoBox.textContent = "Size: "+squareCount+"x"+squareCount;
+
+
+header.appendChild(infoBox);
